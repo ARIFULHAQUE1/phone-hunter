@@ -27,6 +27,12 @@
             background-color: white;
 
         }
+
+        /* first error masage */
+        #error {
+            display: none;
+            color: red;
+        }
     </style>
 </head>
 
@@ -44,15 +50,21 @@
 
 
     <section class=" container">
+        <!-- error division -->
+        <div id="error">
+            <p class="text-center text-danger">No result found🧐</p>
+        </div>
+        <!-- details information -->
+        <div id="details" class="w-25 mx-auto">
+
+        </div>
 
         <!-- display all phone and information -->
-        <div id="display-phones" class=" row row-cols-1 row-cols-md-3 g-4 mt-4 ">
+        <div id="display-phones" class=" row row-cols-1 row-cols-md-3 g-4 mt-4 mb-5 ">
 
         </div>
-        <!-- display searched result -->
-        <div id="searched-phone" class=" row row-cols-1 row-cols-md-3 g-4 mt-4">
 
-        </div>
+
     </section>
 
 
