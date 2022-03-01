@@ -34,16 +34,23 @@
     <h1 class="fs-1 fw-bold text-center">Mobile <span>Home</span></h1>
     <!-- phone search area -->
     <div class="input-group mb-3 w-50 mx-auto  ">
-        <input type="text" class="form-control border border-info " placeholder="Search Phone" aria-label="Search Phone"
-            aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary btn-color rounded" type="button" id="button-addon2">
+        <input id="search-phone" type="text" class="form-control border border-info " placeholder="Search Phone"
+            aria-label="Search Phone" aria-describedby="button-addon2">
+        <button onclick="searchPhone()" class="btn btn-outline-secondary btn-color rounded" type="button"
+            id="button-addon2">
             Search
         </button>
-
     </div>
-    <!-- display all phone and information -->
-    <section class="container">
-        <div id="display-phones" class="row row-cols-1 row-cols-md-3 g-4 mt-4 phones">
+
+
+    <section class=" container">
+
+        <!-- display all phone and information -->
+        <div id="display-phones" class=" row row-cols-1 row-cols-md-3 g-4 mt-4 ">
+
+        </div>
+        <!-- display searched result -->
+        <div id="searched-phone" class=" row row-cols-1 row-cols-md-3 g-4 mt-4">
 
         </div>
     </section>
