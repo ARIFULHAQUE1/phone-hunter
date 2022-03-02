@@ -30,15 +30,18 @@ const displayPhone = (phones) => {
                             </div>
                           `
         displayPhones.appendChild(div)
-
-
     });
 
+}
+// toggle spiner
+const toggleSpinner = displayStyle => {
+    document.getElementById('spiner').style.display = displayStyle;
 }
 
 // search phone
 const searchPhone = () => {
     const searchPhone = document.getElementById('search-phone')
+    toggleSpinner('block')
 
     const searchText = searchPhone.value;
     searchPhone.value = ''
@@ -54,8 +57,6 @@ const searchPhone = () => {
         error.style.display = "none"
 
     }
-
-
 
 }
 
@@ -87,10 +88,11 @@ const morePhones = (phones) => {
                     </div>
                    
                     `
-
         displaySearchedPhones.appendChild(div)
 
     });
+    toggleSpinner('none')
+
 }
 
 // seraching details
@@ -122,9 +124,9 @@ const displayDetails = (details) => {
                    <li><h6>sensors</h6>${details.mainFeatures.sensors}</li>
                    <li><h6>network</h6>${details?.others?.WLAN}</li>
                    <li><h6>Gps</h6>${details.others?.GPS}</li>
-                   <li><h6>NFC:</h6>${details.others?.NFC}</li>
-                   <li><h6>Radio:</h6>${details.others?.Radio}</li>
-                   <li><h6>USB:</h6>${details.others?.USB}</li>
+                   <li><h6>NFC:</h6>${details?.others?.NFC}</li>
+                   <li><h6>Radio:</h6>${details?.others?.Radio}</li>
+                   <li><h6>USB:</h6>${details?.others?.USB}</li>
                    <li><h6>Bluetooth:</h6>${details?.others?.Bluetooth}</li >
                    </ul>
                     <p class="card-textfw-bold"><small class="text-muted">${details?.releaseDate}</small></p>
