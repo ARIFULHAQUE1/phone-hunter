@@ -28,8 +28,7 @@ const displayPhone = (phones) => {
                                 </div>
 
                             </div>
-
-                            `
+                          `
         displayPhones.appendChild(div)
 
 
@@ -37,39 +36,42 @@ const displayPhone = (phones) => {
 
 }
 
-// searching phone
-
+// search phone
 const searchPhone = () => {
     const searchPhone = document.getElementById('search-phone')
+
     const searchText = searchPhone.value;
     searchPhone.value = ''
     const error = document.getElementById('error')
     if (searchText == 0) {
         error.style.display = "block"
     }
-
-
     else {
 
         fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
             .then(response => response.json())
-            .then(data => displaySearchedPhone(data.data))
+            .then(data => morePhones(data.data))
         error.style.display = "none"
 
     }
 
+
+
 }
 
-// searching result
-const displaySearchedPhone = (phones) => {
+// displaySearchedPhone
+const morePhones = (phones) => {
+
     console.log(phones)
-    if (phones.length === 0) {
+    // console.log(phones)
+    const phone = phones.slice(0, 20)
+    console.log(phone)
+    if (phone.length === 0) {
         error.style.display = "block"
     }
     const displaySearchedPhones = document.getElementById('display-phones')
     displaySearchedPhones.textContent = '';
-    phones.forEach(phone => {
-        // console.log(phone)
+    phone.forEach(phone => {
         const div = document.createElement('div')
         div.innerHTML = `
         <div class="card ">
@@ -81,14 +83,14 @@ const displaySearchedPhone = (phones) => {
                                 additional phone. This phone is a little bit Expencive.</p>
                                 <button onclick="details('${phone.slug}')" class="btn btn-primary">Details</button>
                         </div>
-                        
+              
                     </div>
-          
+                   
                     `
+
         displaySearchedPhones.appendChild(div)
 
     });
-    // 
 }
 
 // seraching details
@@ -118,14 +120,14 @@ const displayDetails = (details) => {
                    <li><h6>Display</h6>${details.mainFeatures.displaySize}</li>
                    <li><h6>Chipset</h6>${details.mainFeatures.chipSet}</li>
                    <li><h6>sensors</h6>${details.mainFeatures.sensors}</li>
-                   <li><h6>network</h6>${details.others.WLAN}</li>
-                   <li><h6>Gps</h6>${details.others.GPS}</li>
-                   <li><h6>NFC:</h6>${details.others.NFC}</li>
-                   <li><h6>Radio:</h6>${details.others.Radio}</li>
-                   <li><h6>USB:</h6>${details.others.USB}</li>
-                   <li><h6>Bluetooth:</h6>${details.others.Bluetooth}</li >
+                   <li><h6>network</h6>${details?.others?.WLAN}</li>
+                   <li><h6>Gps</h6>${details.others?.GPS}</li>
+                   <li><h6>NFC:</h6>${details.others?.NFC}</li>
+                   <li><h6>Radio:</h6>${details.others?.Radio}</li>
+                   <li><h6>USB:</h6>${details.others?.USB}</li>
+                   <li><h6>Bluetooth:</h6>${details?.others?.Bluetooth}</li >
                    </ul>
-                    <p class="card-textfw-bold"><small class="text-muted">${details.releaseDate}</small></p>
+                    <p class="card-textfw-bold"><small class="text-muted">${details?.releaseDate}</small></p>
                     <button class="btn-warning rounded fw-bold p-1">Buy now</button>
                 </div >
             </div >

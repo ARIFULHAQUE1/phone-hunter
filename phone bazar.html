@@ -32,12 +32,22 @@
         #error {
             display: none;
             color: red;
+            font-size: 20px;
+        }
+
+        #spiner {
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <h1 class="fs-1 fw-bold text-center">Mobile <span>Home</span></h1>
+    <div class="d-flex justify-content-center">
+        <div>
+            <h1 class="fs-1 fw-bold text-center">Mobile <span>Home</span></h1>
+        </div>
+        <div><img class="img-fluid" src="icons/applications (1).png" alt=""></div>
+    </div>
     <!-- phone search area -->
     <div class="input-group mb-3 w-50 mx-auto  ">
         <input id="search-phone" type="text" class="form-control border border-info " placeholder="Search Phone"
@@ -50,6 +60,33 @@
 
 
     <section class=" container">
+        <div id="spiner" class="text-center">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-warning" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-dark" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <!-- <button onclick="searchPhone()" class="btn outline-secondary btn-color rounded" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Search
+        </button> -->
         <!-- error division -->
         <div id="error">
             <p class="text-center text-danger">No result found🧐</p>
@@ -64,8 +101,8 @@
 
         </div>
 
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-            <button class="btn btn-primary me-md-2" type="button">More</button>
+        <div id="more" class="d-grid gap-2 d-md-flex justify-content-end sm-end mb-3">
+            <button onclick="morePhones( )" class="btn bg-dark text-white me-md-2" type="button">More</button>
         </div>
     </section>
 
