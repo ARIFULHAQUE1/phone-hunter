@@ -105,7 +105,7 @@ const details = (id) => {
 
 // details information
 const displayDetails = (details) => {
-    // console.log(details)
+    console.log(details)
     const detaislInfo = document.getElementById('details')
     detaislInfo.textContent = '';
     const div = document.createElement('div')
@@ -128,6 +128,7 @@ const displayDetails = (details) => {
                    <li><h6>Radio:</h6>${details?.others?.Radio}</li>
                    <li><h6>USB:</h6>${details?.others?.USB}</li>
                    <li><h6>Bluetooth:</h6>${details?.others?.Bluetooth}</li >
+                   <li><h6>Battery:</h6>5000mah</li>
                    </ul>
                     <p class="card-textfw-bold"><small class="text-muted">${details?.releaseDate}</small></p>
                     <button class="btn-warning rounded fw-bold p-1">Buy now</button>
@@ -137,4 +138,3 @@ const displayDetails = (details) => {
     detaislInfo.appendChild(div)
 
 }
-
